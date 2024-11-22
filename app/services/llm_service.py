@@ -1,80 +1,77 @@
+# app/services/llm_service.py
+
 from groq import Groq
 import os
 from typing import Optional
+from app.utils.logger import CustomLogger
 
 class LLMService:
     def __init__(self):
+        self.logger = CustomLogger("llm_service").get_logger()
         api_key = os.environ.get('GROQ_API_KEY')
         if not api_key:
+            self.logger.error("GROQ_API_KEY not found in environment variables")
             raise ValueError("GROQ_API_KEY not found in environment variables")
         
+        self.logger.info("Initializing LLM Service with Groq API")
         self.client = Groq(api_key=api_key)
-        self.model = "llama3-70b-8192"  # Groq supports different LLaMA variants
+        self.model = "llama3-70b-8192"
         
-        # System message for speech assistance
         self.system_message = """You are a helpful AI assistant specializing in 
         natural language enhancement for people with speech impairments. Your task 
         is to take user input and rephrase it into clear, well-structured sentences
-        while maintaining the original meaning and intent. Focus on:
+        while maintaining the original meaning and intent. Important: Return ONLY 
+        the enhanced text without any explanations, prefixes, or formatting.
+        
+        Focus on:
         1. Clarity and naturalness of expression
         2. Proper grammar and sentence structure
         3. Maintaining the user's intended tone and meaning
         4. Using appropriate conversational language
-        """
+        
+        Remember: Provide ONLY the enhanced text as your response."""
 
     def enhance_text(self, text: str) -> str:
-        """
-        Enhance the input text using LLaMA through Groq API.
-        Falls back to original text if enhancement fails.
-        
-        Args:
-            text (str): Input text to enhance
-            
-        Returns:
-            str: Enhanced text or original text if enhancement fails
-        """
+        """Enhance the input text using LLaMA through Groq API."""
         try:
-            # Create chat completion request
+            self.logger.info(f"Enhancing text: {text}")
+            
             completion = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {"role": "system", "content": self.system_message},
-                    {"role": "user", "content": f'Enhance this text: "{text}"'}
+                    {"role": "user", "content": f'Enhance: "{text}"'}
                 ],
-                temperature=0.7,  # Adjust for creativity vs consistency
-                max_tokens=256,   # Adjust based on your needs
+                temperature=0.7,
+                max_tokens=256,
                 top_p=0.9,
                 stream=False
             )
             
-            # Extract and clean the enhanced text
-            enhanced_text = completion.choices[0].message.content.strip()
-            # Remove quotes if present
-            enhanced_text = enhanced_text.strip('"')
-            
+            enhanced_text = self._clean_response(completion.choices[0].message.content)
+            self.logger.info(f"Enhanced text result: {enhanced_text}")
             return enhanced_text
-        
+            
         except Exception as e:
-            print(f"Error enhancing text with Groq API: {str(e)}")
+            self.logger.error(f"Error enhancing text: {str(e)}")
             return text
 
     def _clean_response(self, text: str) -> str:
-        """
-        Clean up the model's response by removing any artifacts or unwanted formatting.
+        """Clean up the model's response."""
+        self.logger.debug(f"Cleaning response text: {text}")
         
-        Args:
-            text (str): Raw response from the model
-            
-        Returns:
-            str: Cleaned text
-        """
-        # Remove any markdown formatting if present
+        # Remove any markdown formatting
         text = text.replace('```', '').strip()
-        # Remove quotes if present
+        # Remove quotes
         text = text.strip('"')
-        # Remove "Enhanced text:" or similar prefixes if present
-        prefixes = ["Enhanced text:", "Enhanced version:", "Here's the enhanced text:"]
+        # Remove common prefixes
+        prefixes = [
+            "Enhanced text:", "Enhanced version:", "Here's the enhanced text:",
+            "Here is the enhanced text:", "Enhanced:", "Result:"
+        ]
         for prefix in prefixes:
-            if text.startswith(prefix):
+            if text.lower().startswith(prefix.lower()):
                 text = text[len(prefix):].strip()
+        
+        self.logger.debug(f"Cleaned text result: {text}")
         return text

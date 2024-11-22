@@ -6,3 +6,6 @@ app/routes/__pycache__/
 app/services/__pycache__/
 instance/
 migrations/
+logs/llm_service_20241122.log
+logs/routes_20241122.log
+logs/tts_service_20241122.log

@@ -1,0 +1,13 @@
+2024-11-22 03:23:55,824 - tts_service - INFO - Initializing TTS Service
+2024-11-22 03:23:55,825 - tts_service - INFO - Initializing voice: amy
+2024-11-22 03:23:57,462 - tts_service - INFO - Initializing voice: arctic
+2024-11-22 03:23:57,463 - tts_service - INFO - Initializing voice: bryce
+2024-11-22 03:23:57,465 - tts_service - INFO - All voices initialized successfully
+2024-11-22 03:24:21,884 - tts_service - INFO - Generating speech for voice 'amy' with text: I'm running a test to determine if the log files are generated automatically.
+2024-11-22 03:24:21,888 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmpyq5uamz7.wav
+2024-11-22 03:24:28,775 - tts_service - INFO - Speech generation successful
+2024-11-22 03:24:28,775 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmpyq5uamz7.wav'
+2024-11-22 03:25:40,633 - tts_service - INFO - Generating speech for voice 'amy' with text: This is a test to see if the log files are generated automatically
+2024-11-22 03:25:40,634 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmpfb3jand0.wav
+2024-11-22 03:25:46,649 - tts_service - INFO - Speech generation successful
+2024-11-22 03:25:46,650 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmpfb3jand0.wav'

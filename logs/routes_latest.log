@@ -1,0 +1,10 @@
+2024-11-22 03:24:21,443 - routes - INFO - Received synthesis request
+2024-11-22 03:24:21,444 - routes - INFO - Request parameters - Text: This is a test to see if the log files are generated automatically, Voice: amy, Enhance: True
+2024-11-22 03:24:21,445 - routes - DEBUG - Enhancing text with LLM
+2024-11-22 03:24:21,884 - routes - INFO - Text enhanced: I'm running a test to determine if the log files are generated automatically.
+2024-11-22 03:24:21,884 - routes - DEBUG - Converting text to speech
+2024-11-22 03:24:28,776 - routes - INFO - Request processed successfully
+2024-11-22 03:25:40,630 - routes - INFO - Received synthesis request
+2024-11-22 03:25:40,631 - routes - INFO - Request parameters - Text: This is a test to see if the log files are generated automatically, Voice: amy, Enhance: False
+2024-11-22 03:25:40,632 - routes - DEBUG - Converting text to speech
+2024-11-22 03:25:46,652 - routes - INFO - Request processed successfully

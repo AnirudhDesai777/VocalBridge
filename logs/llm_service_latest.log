@@ -1,0 +1,5 @@
+2024-11-22 03:23:57,467 - llm_service - INFO - Initializing LLM Service with Groq API
+2024-11-22 03:24:21,446 - llm_service - INFO - Enhancing text: This is a test to see if the log files are generated automatically
+2024-11-22 03:24:21,882 - llm_service - DEBUG - Cleaning response text: "I'm running a test to determine if the log files are generated automatically."
+2024-11-22 03:24:21,883 - llm_service - DEBUG - Cleaned text result: I'm running a test to determine if the log files are generated automatically.
+2024-11-22 03:24:21,883 - llm_service - INFO - Enhanced text result: I'm running a test to determine if the log files are generated automatically.
