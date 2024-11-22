@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Speech Assistant</h1>
+    <form id="speech-form">
+        <div class="form-group">
+            <label for="text-input">Enter Text:</label>
+            <textarea 
+                id="text-input" 
+                name="text" 
+                rows="4" 
+                required
+                aria-label="Text to convert to speech"
+            ></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="voice-select">Select Voice:</label>
+            <select id="voice-select" name="voice">
+                <option value="amy">Amy</option>
+                <option value="arctic">Arctic</option>
+                <option value="bryce">Bryce</option>
+            </select>
+        </div>
+
+        <button type="submit">Generate Speech</button>
+    </form>
+    
+    <div id="audio-output" class="mt-4" aria-live="polite"></div>
+</div>
+{% endblock %}
