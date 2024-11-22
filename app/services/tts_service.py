@@ -14,37 +14,49 @@ class TTSService:
     def _initialize_speakers(self):
         """Initialize different voices with PiperSpeaker"""
         try:
-            voices = [PiperVoice.AMY, PiperVoice.ARCTIC, PiperVoice.BRYCE]
+            # Initialize all available voices
+            voices = [
+                PiperVoice.AMY, PiperVoice.ARCTIC, PiperVoice.BRYCE,
+                PiperVoice.JOHN, PiperVoice.NORMAN, PiperVoice.DANNY,
+                PiperVoice.KATHLEEN, PiperVoice.KRISTIN, PiperVoice.LJSPEECH
+            ]
             for voice in voices:
                 self.logger.info(f"Initializing voice: {voice.value}")
-                self.speakers[voice.value] = PiperSpeaker(
-                    voice=voice,
-                    quality=PiperQuality.MEDIUM
-                )
-            self.logger.info("All voices initialized successfully")
+                try:
+                    self.speakers[voice.value] = PiperSpeaker(
+                        voice=voice,
+                        quality=PiperQuality.MEDIUM
+                    )
+                except Exception as e:
+                    self.logger.error(f"Failed to initialize voice {voice.value}: {str(e)}")
+                    continue
+            self.logger.info("Voice initialization completed")
         except Exception as e:
             self.logger.error(f"Error initializing voices: {str(e)}")
             raise
 
-    def generate_speech(self, text, voice='amy'):
-        """Generate speech from text using specified voice."""
-        self.logger.info(f"Generating speech for voice '{voice}' with text: {text}")
+    def generate_speech(self, text: str, voice: str = 'amy', speed: float = 1.0) -> str:
+        """Generate speech from text using specified voice and speed."""
+        self.logger.info(f"Generating speech - Voice: {voice}, Speed: {speed}, Text: {text}")
         
         if voice not in self.speakers:
             error_msg = f"Unknown voice: {voice}"
             self.logger.error(error_msg)
             raise ValueError(error_msg)
 
-        # Create temporary file for audio output
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
             try:
                 self.logger.debug(f"Created temporary file: {temp_file.name}")
                 speaker = self.speakers[voice]
                 
+                # Set speech speed
+                if hasattr(speaker, 'set_speed'):
+                    speaker.set_speed(speed)
+                
                 # Generate speech
                 speaker.say(text)
                 
-                # Read and encode the audio file
+                # Read and encode audio file
                 with open(temp_file.name, 'rb') as audio_file:
                     audio_data = audio_file.read()
                     audio_base64 = base64.b64encode(audio_data).decode('utf-8')
@@ -56,7 +68,6 @@ class TTSService:
                 self.logger.error(f"Error generating speech: {str(e)}")
                 raise
             finally:
-                # Clean up
                 try:
                     os.unlink(temp_file.name)
                     self.logger.debug(f"Cleaned up temporary file: {temp_file.name}")

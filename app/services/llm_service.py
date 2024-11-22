@@ -98,16 +98,37 @@ class LLMService:
         
         # Remove any markdown formatting
         text = text.replace('```', '').strip()
+        
         # Remove quotes
-        text = text.strip('"')
+        text = text.strip('"').strip("'")
+        
+        # Remove explanatory text and keep only the actual output
+        lines = text.split('\n')
+        cleaned_lines = []
+        for line in lines:
+            line = line.strip()
+            # Skip empty lines and lines that look like explanations
+            if not line or any(x in line.lower() for x in [
+                'input is', 'output is', 'output remains', 'the sentence',
+                'this is', 'already well', 'no enhancement', 'perfect just'
+            ]):
+                continue
+            cleaned_lines.append(line)
+        
+        text = ' '.join(cleaned_lines)
+        
         # Remove common prefixes
         prefixes = [
             "Enhanced text:", "Enhanced version:", "Here's the enhanced text:",
-            "Here is the enhanced text:", "Enhanced:", "Result:"
+            "Here is the enhanced text:", "Enhanced:", "Result:", "Format:",
+            "Formatting:", "Formatted text:", "Response:"
         ]
         for prefix in prefixes:
             if text.lower().startswith(prefix.lower()):
                 text = text[len(prefix):].strip()
+        
+        # Clean up any remaining quotes or special characters
+        text = text.strip('"').strip("'").strip()
         
         self.logger.debug(f"Cleaned text result: {text}")
         return text

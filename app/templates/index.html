@@ -279,27 +279,36 @@ document.getElementById('speech-form').addEventListener('submit', async (e) => {
 
 function playAudio(audioData) {
     const audioOutput = document.getElementById('audio-output');
-    const audio = new Audio(`data:audio/wav;base64,${audioData}`);
     
-    audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
-    
-    audio.onended = () => {
-        audioOutput.innerHTML = '<div class="completed">Audio playback completed</div>';
-    };
-    
-    audio.onerror = (e) => {
-        console.error('Audio playback error:', e);
-        audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
-    };
+    // Clear any existing audio elements
+    audioOutput.innerHTML = '<div class="playing">Preparing audio...</div>';
     
     try {
+        const audio = new Audio(`data:audio/wav;base64,${audioData}`);
+        
+        // Set up event handlers before playing
+        audio.oncanplay = () => {
+            audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
+        };
+        
+        audio.onended = () => {
+            audioOutput.innerHTML = '<div class="completed">Audio playback completed</div>';
+        };
+        
+        audio.onerror = (e) => {
+            console.error('Audio playback error:', e);
+            audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+        };
+        
+        // Add error handling for play()
         audio.play().catch(error => {
             console.error('Audio play error:', error);
-            audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+            audioOutput.innerHTML = `<div class="error">Error playing audio: ${error.message}</div>`;
         });
+        
     } catch (error) {
-        console.error('Audio play error:', error);
-        audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+        console.error('Audio creation error:', error);
+        audioOutput.innerHTML = `<div class="error">Error creating audio: ${error.message}</div>`;
     }
 }
 </script>
