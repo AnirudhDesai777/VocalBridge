@@ -1,17 +1,5 @@
-2024-11-22 04:10:49,678 - routes - INFO - Serving index page
-2024-11-22 04:11:03,350 - routes - INFO - Received synthesis request
-2024-11-22 04:11:03,352 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: False, Speed: 1
-2024-11-22 04:11:03,708 - routes - INFO - Text processing successful
-2024-11-22 04:11:03,722 - routes - INFO - Received speech request
-2024-11-22 04:11:14,008 - routes - INFO - Received synthesis request
-2024-11-22 04:11:14,009 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
-2024-11-22 04:11:14,711 - routes - INFO - Text processing successful
-2024-11-22 04:11:17,868 - routes - INFO - Received speech request
-2024-11-22 04:11:28,229 - routes - INFO - Received synthesis request
-2024-11-22 04:11:28,231 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 2
-2024-11-22 04:11:28,977 - routes - INFO - Text processing successful
-2024-11-22 04:11:32,503 - routes - INFO - Received speech request
-2024-11-22 04:11:39,367 - routes - INFO - Received synthesis request
-2024-11-22 04:11:39,369 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 2
-2024-11-22 04:11:40,136 - routes - INFO - Text processing successful
-2024-11-22 04:11:43,576 - routes - INFO - Received speech request
+2024-11-22 04:27:02,222 - routes - INFO - Received synthesis request
+2024-11-22 04:27:02,224 - routes - INFO - Request parameters - Text: Hello How are you, Voice: ljspeech, Enhance: False, Speed: 1
+2024-11-22 04:27:02,506 - routes - INFO - Text processing successful
+2024-11-22 04:27:02,518 - routes - INFO - Received speech request
+2024-11-22 04:27:07,319 - routes - INFO - Serving index page

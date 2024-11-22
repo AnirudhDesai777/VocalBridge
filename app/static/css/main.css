@@ -328,7 +328,7 @@ textarea:focus {
     }
 }
 
-/* Add to your existing CSS */
+
 
 .speed-control {
     display: flex;
@@ -341,11 +341,11 @@ textarea:focus {
     height: 6px;
     background: var(--border-color);
     border-radius: 3px;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
 }
 
 .styled-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     width: 18px;
     height: 18px;
     background: var(--primary-color);
@@ -403,4 +403,42 @@ details summary {
 
 .quality-select {
     margin-top: 1rem;
+}
+
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.favorite-phrase {
+    background: var(--surface-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.favorite-phrase:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.favorites-section {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+
+.favorites-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }

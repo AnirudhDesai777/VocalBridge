@@ -44,30 +44,35 @@ class TTSService:
             self.logger.error(error_msg)
             raise ValueError(error_msg)
 
-        with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
-            try:
-                self.logger.debug(f"Created temporary file: {temp_file.name}")
-                speaker = self.speakers[voice]
-                
-                # Set speech speed
-                if hasattr(speaker, 'set_speed'):
-                    speaker.set_speed(speed)
-                
-                # Generate speech
-                speaker.say(text)
-                
-                # Read and encode audio file
-                with open(temp_file.name, 'rb') as audio_file:
-                    audio_data = audio_file.read()
-                    audio_base64 = base64.b64encode(audio_data).decode('utf-8')
-                
-                self.logger.info("Speech generation successful")
-                return audio_base64
-                
-            except Exception as e:
-                self.logger.error(f"Error generating speech: {str(e)}")
-                raise
-            finally:
+        temp_file = None
+        try:
+            # Create temporary file
+            temp_file = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+            self.logger.debug(f"Created temporary file: {temp_file.name}")
+            
+            # Close the file to allow other processes to access it
+            temp_file.close()
+            
+            # Get speaker and generate speech
+            speaker = self.speakers[voice]
+            
+            # Generate speech to the temporary file
+            speaker.say(text)
+            
+            # Read and encode the audio file
+            with open(temp_file.name, 'rb') as audio_file:
+                audio_data = audio_file.read()
+                audio_base64 = base64.b64encode(audio_data).decode('utf-8')
+            
+            self.logger.info("Speech generation successful")
+            return audio_base64
+            
+        except Exception as e:
+            self.logger.error(f"Error generating speech: {str(e)}")
+            raise
+        finally:
+            # Clean up temporary file
+            if temp_file and os.path.exists(temp_file.name):
                 try:
                     os.unlink(temp_file.name)
                     self.logger.debug(f"Cleaned up temporary file: {temp_file.name}")

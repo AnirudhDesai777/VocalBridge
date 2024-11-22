@@ -1,29 +1,17 @@
-2024-11-22 04:10:45,321 - tts_service - INFO - Initializing TTS Service
-2024-11-22 04:10:45,321 - tts_service - INFO - Initializing voice: amy
-2024-11-22 04:10:47,025 - tts_service - INFO - Initializing voice: arctic
-2024-11-22 04:10:47,025 - tts_service - INFO - Initializing voice: bryce
-2024-11-22 04:10:47,027 - tts_service - INFO - Initializing voice: john
-2024-11-22 04:10:47,029 - tts_service - INFO - Initializing voice: norman
-2024-11-22 04:10:47,032 - tts_service - INFO - Initializing voice: danny
-2024-11-22 04:10:47,183 - tts_service - ERROR - Failed to initialize voice danny: danny(medium) is not available, please refer to https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US to check all available models
-2024-11-22 04:10:47,186 - tts_service - INFO - Initializing voice: kathleen
-2024-11-22 04:10:47,389 - tts_service - ERROR - Failed to initialize voice kathleen: kathleen(medium) is not available, please refer to https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US to check all available models
-2024-11-22 04:10:47,392 - tts_service - INFO - Initializing voice: kristin
-2024-11-22 04:10:47,394 - tts_service - INFO - Initializing voice: ljspeech
-2024-11-22 04:10:47,396 - tts_service - INFO - Voice initialization completed
-2024-11-22 04:11:03,723 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1, Text: Hello, how are you?
-2024-11-22 04:11:03,726 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmp3fkaknhg.wav
-2024-11-22 04:11:06,711 - tts_service - INFO - Speech generation successful
-2024-11-22 04:11:06,712 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmp3fkaknhg.wav'
-2024-11-22 04:11:17,869 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1, Text: Here's an enhanced version: "Hi, how's your day going so far?
-2024-11-22 04:11:17,870 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmpi6r1cat_.wav
-2024-11-22 04:11:23,288 - tts_service - INFO - Speech generation successful
-2024-11-22 04:11:23,289 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmpi6r1cat_.wav'
-2024-11-22 04:11:32,505 - tts_service - INFO - Generating speech - Voice: amy, Speed: 2, Text: Hello, how are you?
-2024-11-22 04:11:32,506 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmpnudj7y82.wav
-2024-11-22 04:11:35,523 - tts_service - INFO - Speech generation successful
-2024-11-22 04:11:35,524 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmpnudj7y82.wav'
-2024-11-22 04:11:43,578 - tts_service - INFO - Generating speech - Voice: amy, Speed: 2, Text: Here's an enhanced version: "It's great to connect with you! How's your day going so far?" I made a few subtle changes to create a more engaging and conversational tone while maintaining the original friendly intent: * Added a warm and welcoming phrase ("It's great to connect with you!") to set a positive tone. * Changed the question to "How's your day going so far?" to make it more open-ended and encouraging of a response. * Kept the overall friendly and casual tone of the original phrase. Let me know if you'd like me to enhance anything else!
-2024-11-22 04:11:43,579 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmp_e2h0vm5.wav
-2024-11-22 04:12:25,034 - tts_service - INFO - Speech generation successful
-2024-11-22 04:12:25,035 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmp_e2h0vm5.wav'
+2024-11-22 04:26:55,581 - tts_service - INFO - Initializing TTS Service
+2024-11-22 04:26:55,581 - tts_service - INFO - Initializing voice: amy
+2024-11-22 04:26:57,226 - tts_service - INFO - Initializing voice: arctic
+2024-11-22 04:26:57,228 - tts_service - INFO - Initializing voice: bryce
+2024-11-22 04:26:57,230 - tts_service - INFO - Initializing voice: john
+2024-11-22 04:26:57,231 - tts_service - INFO - Initializing voice: norman
+2024-11-22 04:26:57,232 - tts_service - INFO - Initializing voice: danny
+2024-11-22 04:26:57,497 - tts_service - ERROR - Failed to initialize voice danny: danny(medium) is not available, please refer to https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US to check all available models
+2024-11-22 04:26:57,500 - tts_service - INFO - Initializing voice: kathleen
+2024-11-22 04:26:57,602 - tts_service - ERROR - Failed to initialize voice kathleen: kathleen(medium) is not available, please refer to https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US to check all available models
+2024-11-22 04:26:57,604 - tts_service - INFO - Initializing voice: kristin
+2024-11-22 04:26:57,606 - tts_service - INFO - Initializing voice: ljspeech
+2024-11-22 04:26:57,607 - tts_service - INFO - Voice initialization completed
+2024-11-22 04:27:02,520 - tts_service - INFO - Generating speech - Voice: ljspeech, Speed: 1, Text: Hello, how are you?
+2024-11-22 04:27:02,523 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmpmhoialpp.wav
+2024-11-22 04:27:05,504 - tts_service - INFO - Speech generation successful
+2024-11-22 04:27:05,507 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\tmpmhoialpp.wav

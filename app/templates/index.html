@@ -112,11 +112,14 @@
         <div id="favorites" class="favorites-section mt-4">
             <h3>Quick Access Phrases</h3>
             <div class="favorites-grid">
-                <button class="favorite-phrase" data-text="Hello, how are you?">Hello, how are you?</button>
-                <button class="favorite-phrase" data-text="Thank you very much.">Thank you very much</button>
-                <button class="favorite-phrase" data-text="Could you please help me?">Need help</button>
-                <button class="favorite-phrase" data-text="I don't understand.">Don't understand</button>
-                <!-- Add more favorite phrases -->
+                <button type="button" class="favorite-phrase" data-text="Hello, how are you?">Greet</button>
+                <button type="button" class="favorite-phrase" data-text="Thank you very much!">Thank</button>
+                <button type="button" class="favorite-phrase" data-text="Could you please help me?">Help</button>
+                <button type="button" class="favorite-phrase" data-text="I don't understand">Confused</button>
+                <button type="button" class="favorite-phrase" data-text="Can you repeat that please?">Repeat</button>
+                <button type="button" class="favorite-phrase" data-text="Nice to meet you!">Meet</button>
+                <button type="button" class="favorite-phrase" data-text="Have a great day!">Goodbye</button>
+                <button type="button" class="favorite-phrase" data-text="I need assistance with this.">Assist</button>
             </div>
         </div>
     </div>
@@ -171,12 +174,8 @@ document.getElementById('speed-control').addEventListener('input', (e) => {
     document.querySelector('.speed-value').textContent = `${e.target.value}x`;
 });
 
-// Favorite phrases
-document.querySelectorAll('.favorite-phrase').forEach(button => {
-    button.addEventListener('click', () => {
-        document.getElementById('text-input').value = button.dataset.text;
-    });
-});
+
+
 
 // Form Submission and Enhancement Review
 document.getElementById('speech-form').addEventListener('submit', async (e) => {
@@ -277,39 +276,61 @@ document.getElementById('speech-form').addEventListener('submit', async (e) => {
     }
 });
 
-function playAudio(audioData) {
+async function playAudio(audioData) {
     const audioOutput = document.getElementById('audio-output');
-    
-    // Clear any existing audio elements
-    audioOutput.innerHTML = '<div class="playing">Preparing audio...</div>';
-    
+    audioOutput.innerHTML = '<div class="loading">Preparing audio...</div>';
+
     try {
-        const audio = new Audio(`data:audio/wav;base64,${audioData}`);
+        // Create a Blob from the base64 audio data
+        const byteCharacters = atob(audioData);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: 'audio/wav' });
         
-        // Set up event handlers before playing
-        audio.oncanplay = () => {
+        // Create object URL from blob
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
+        
+        // Set up event handlers
+        audio.oncanplaythrough = () => {
             audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
         };
         
         audio.onended = () => {
             audioOutput.innerHTML = '<div class="completed">Audio playback completed</div>';
+            URL.revokeObjectURL(audioUrl); // Clean up the URL
         };
         
         audio.onerror = (e) => {
             console.error('Audio playback error:', e);
             audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+            URL.revokeObjectURL(audioUrl);
         };
-        
-        // Add error handling for play()
-        audio.play().catch(error => {
-            console.error('Audio play error:', error);
-            audioOutput.innerHTML = `<div class="error">Error playing audio: ${error.message}</div>`;
-        });
+
+        // Wait for the audio to load before playing
+        await audio.play();
         
     } catch (error) {
-        console.error('Audio creation error:', error);
-        audioOutput.innerHTML = `<div class="error">Error creating audio: ${error.message}</div>`;
+        console.error('Audio error:', error);
+        audioOutput.innerHTML = `<div class="error">Error: ${error.message}</div>`;
     }
 }
+
+// Add nice hover effects for favorite phrases
+document.querySelectorAll('.favorite-phrase').forEach(button => {
+    button.addEventListener('mouseover', () => {
+        button.style.transform = 'translateY(-2px)';
+        button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    });
+    
+    button.addEventListener('mouseout', () => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = 'none';
+    });
+});
+
 </script>
 {% endblock %}
