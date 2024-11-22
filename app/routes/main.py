@@ -21,31 +21,51 @@ def synthesize_speech():
     text = data.get('text', '')
     voice = data.get('voice', 'amy')
     enhance = data.get('enhance', True)
+    speed = data.get('speed', 1.0)  # New parameter for speed control
     
-    logger.info(f"Request parameters - Text: {text}, Voice: {voice}, Enhance: {enhance}")
+    logger.info(f"Request parameters - Text: {text}, Voice: {voice}, "
+               f"Enhance: {enhance}, Speed: {speed}")
     
     try:
-        # First enhance the text if requested
-        if enhance:
-            logger.debug("Enhancing text with LLM")
-            text = llm_service.enhance_text(text)
-            logger.info(f"Text enhanced: {text}")
-        
-        # Then convert to speech
-        logger.debug("Converting text to speech")
-        audio_data = tts_service.generate_speech(text, voice)
+        # First, always humanize the text for better TTS
+        humanized_text, enhanced_text = llm_service.process_text(text, enhance)
         
         response_data = {
             'success': True,
-            'audio': audio_data,
-            'enhanced_text': text
+            'original_text': text,
+            'humanized_text': humanized_text,
+            'enhanced_text': enhanced_text if enhance else None,
         }
-        logger.info("Request processed successfully")
+        
+        logger.info("Text processing successful")
         return jsonify(response_data)
         
     except Exception as e:
         error_msg = str(e)
         logger.error(f"Error processing request: {error_msg}")
+        return jsonify({
+            'success': False,
+            'error': error_msg
+        }), 400
+
+@bp.route('/speak', methods=['POST'])
+def speak():
+    logger.info("Received speech request")
+    
+    data = request.get_json()
+    text = data.get('text', '')
+    voice = data.get('voice', 'amy')
+    speed = data.get('speed', 1.0)
+    
+    try:
+        audio_data = tts_service.generate_speech(text, voice, speed)
+        return jsonify({
+            'success': True,
+            'audio': audio_data
+        })
+    except Exception as e:
+        error_msg = str(e)
+        logger.error(f"Error generating speech: {error_msg}")
         return jsonify({
             'success': False,
             'error': error_msg

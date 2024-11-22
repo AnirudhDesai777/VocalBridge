@@ -1,5 +1,35 @@
-2024-11-22 03:34:07,748 - llm_service - INFO - Initializing LLM Service with Groq API
-2024-11-22 03:34:24,298 - llm_service - INFO - Enhancing text: Hello, how are you?
-2024-11-22 03:34:24,635 - llm_service - DEBUG - Cleaning response text: Hi, how's it going today?
-2024-11-22 03:34:24,635 - llm_service - DEBUG - Cleaned text result: Hi, how's it going today?
-2024-11-22 03:34:24,636 - llm_service - INFO - Enhanced text result: Hi, how's it going today?
+2024-11-22 03:54:56,043 - llm_service - INFO - Initializing LLM Service with Groq API
+2024-11-22 03:55:12,716 - llm_service - INFO - Humanizing text: Hello How are you
+2024-11-22 03:55:12,954 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hello, how are you?"
+2024-11-22 03:55:12,954 - llm_service - DEBUG - Cleaned text result: Here is the formatted text:
+
+"Hello, how are you?
+2024-11-22 03:55:12,955 - llm_service - INFO - Humanized text result: Here is the formatted text:
+
+"Hello, how are you?
+2024-11-22 03:55:23,590 - llm_service - INFO - Humanizing text: Hello How are you
+2024-11-22 03:55:23,778 - llm_service - DEBUG - Cleaning response text: "Hello, how are you?"
+2024-11-22 03:55:23,779 - llm_service - DEBUG - Cleaned text result: Hello, how are you?
+2024-11-22 03:55:23,779 - llm_service - INFO - Humanized text result: Hello, how are you?
+2024-11-22 03:55:26,697 - llm_service - INFO - Humanizing text: Hello How are you
+2024-11-22 03:55:26,856 - llm_service - DEBUG - Cleaning response text: "Hello, how are you?"
+2024-11-22 03:55:26,857 - llm_service - DEBUG - Cleaned text result: Hello, how are you?
+2024-11-22 03:55:26,857 - llm_service - INFO - Humanized text result: Hello, how are you?
+2024-11-22 03:55:26,858 - llm_service - INFO - Enhancing text: Hello, how are you?
+2024-11-22 03:55:27,238 - llm_service - DEBUG - Cleaning response text: Here's an enhanced version:
+
+"Hi, how's your day going so far?"
+
+This rephrased sentence maintains the friendly and casual tone of the original, while making it sound more natural and conversational. The phrase "how's your day going so far" is a bit more specific and engaging than the more generic "how are you", which can help spark a more interesting conversation.
+2024-11-22 03:55:27,239 - llm_service - DEBUG - Cleaned text result: Here's an enhanced version:
+
+"Hi, how's your day going so far?"
+
+This rephrased sentence maintains the friendly and casual tone of the original, while making it sound more natural and conversational. The phrase "how's your day going so far" is a bit more specific and engaging than the more generic "how are you", which can help spark a more interesting conversation.
+2024-11-22 03:55:27,240 - llm_service - INFO - Enhanced text result: Here's an enhanced version:
+
+"Hi, how's your day going so far?"
+
+This rephrased sentence maintains the friendly and casual tone of the original, while making it sound more natural and conversational. The phrase "how's your day going so far" is a bit more specific and engaging than the more generic "how are you", which can help spark a more interesting conversation.

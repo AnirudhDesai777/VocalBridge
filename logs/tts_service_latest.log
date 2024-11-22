@@ -1,17 +1,5 @@
-2024-11-22 03:34:05,745 - tts_service - INFO - Initializing TTS Service
-2024-11-22 03:34:05,745 - tts_service - INFO - Initializing voice: amy
-2024-11-22 03:34:07,744 - tts_service - INFO - Initializing voice: arctic
-2024-11-22 03:34:07,745 - tts_service - INFO - Initializing voice: bryce
-2024-11-22 03:34:07,746 - tts_service - INFO - All voices initialized successfully
-2024-11-22 03:34:24,638 - tts_service - INFO - Generating speech for voice 'amy' with text: Hi, how's it going today?
-2024-11-22 03:34:24,639 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmp45hcoiv3.wav
-2024-11-22 03:34:27,903 - tts_service - INFO - Speech generation successful
-2024-11-22 03:34:27,905 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmp45hcoiv3.wav'
-2024-11-22 03:34:44,111 - tts_service - INFO - Generating speech for voice 'amy' with text: Hello, how are you?
-2024-11-22 03:34:44,112 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmp_myy1mml.wav
-2024-11-22 03:34:46,858 - tts_service - INFO - Speech generation successful
-2024-11-22 03:34:46,859 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmp_myy1mml.wav'
-2024-11-22 03:35:23,360 - tts_service - INFO - Generating speech for voice 'amy' with text: This is me trying to have a natural conversation with you
-2024-11-22 03:35:23,361 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\tmp_59tatj4.wav
-2024-11-22 03:35:28,484 - tts_service - INFO - Speech generation successful
-2024-11-22 03:35:28,485 - tts_service - WARNING - Error cleaning up temporary file: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\aniru\\AppData\\Local\\Temp\\tmp_59tatj4.wav'
+2024-11-22 03:54:55,720 - tts_service - INFO - Initializing TTS Service
+2024-11-22 03:54:55,720 - tts_service - INFO - Initializing voice: amy
+2024-11-22 03:54:56,039 - tts_service - INFO - Initializing voice: arctic
+2024-11-22 03:54:56,040 - tts_service - INFO - Initializing voice: bryce
+2024-11-22 03:54:56,041 - tts_service - INFO - All voices initialized successfully

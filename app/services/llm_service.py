@@ -5,6 +5,7 @@ import os
 from typing import Optional
 from app.utils.logger import CustomLogger
 
+
 class LLMService:
     def __init__(self):
         self.logger = CustomLogger("llm_service").get_logger()
@@ -17,34 +18,61 @@ class LLMService:
         self.client = Groq(api_key=api_key)
         self.model = "llama3-70b-8192"
         
-        self.system_message = """You are a helpful AI assistant specializing in 
+        # System messages for different enhancement types
+        self.humanize_message = """You are a text formatting assistant. Your task is to 
+        add appropriate punctuation, breaks, and spaces to make text sound more natural 
+        when spoken by a TTS system. DO NOT add, remove, or change any words. Only add
+        punctuation and spacing. Example:
+        Input: "hello how are you doing today i am good"
+        Output: "Hello, how are you doing today? I am good."
+        """
+        
+        self.enhance_message = """You are a helpful AI assistant specializing in 
         natural language enhancement for people with speech impairments. Your task 
         is to take user input and rephrase it into clear, well-structured sentences
-        while maintaining the original meaning and intent. Important: Return ONLY 
-        the enhanced text without any explanations, prefixes, or formatting.
-        
-        Focus on:
+        while maintaining the original meaning and intent. Focus on:
         1. Clarity and naturalness of expression
         2. Proper grammar and sentence structure
         3. Maintaining the user's intended tone and meaning
-        4. Using appropriate conversational language
-        
-        Remember: Provide ONLY the enhanced text as your response."""
+        4. Using appropriate conversational language"""
+
+    def humanize_text(self, text: str) -> str:
+        """Add punctuation and breaks for better TTS output."""
+        try:
+            self.logger.info(f"Humanizing text: {text}")
+            
+            completion = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": self.humanize_message},
+                    {"role": "user", "content": f'Format: "{text}"'}
+                ],
+                temperature=0.3,  # Lower temperature for more consistent formatting
+                max_tokens=256,
+                stream=False
+            )
+            
+            humanized_text = self._clean_response(completion.choices[0].message.content)
+            self.logger.info(f"Humanized text result: {humanized_text}")
+            return humanized_text
+            
+        except Exception as e:
+            self.logger.error(f"Error humanizing text: {str(e)}")
+            return text
 
     def enhance_text(self, text: str) -> str:
-        """Enhance the input text using LLaMA through Groq API."""
+        """Enhance the text content while maintaining meaning."""
         try:
             self.logger.info(f"Enhancing text: {text}")
             
             completion = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": self.system_message},
+                    {"role": "system", "content": self.enhance_message},
                     {"role": "user", "content": f'Enhance: "{text}"'}
                 ],
                 temperature=0.7,
                 max_tokens=256,
-                top_p=0.9,
                 stream=False
             )
             
@@ -55,6 +83,14 @@ class LLMService:
         except Exception as e:
             self.logger.error(f"Error enhancing text: {str(e)}")
             return text
+
+    def process_text(self, text: str, should_enhance: bool = False) -> tuple[str, str]:
+        """Process text through humanization and optional enhancement."""
+        humanized = self.humanize_text(text)
+        if should_enhance:
+            enhanced = self.enhance_text(humanized)
+            return humanized, enhanced
+        return humanized, humanized
 
     def _clean_response(self, text: str) -> str:
         """Clean up the model's response."""
