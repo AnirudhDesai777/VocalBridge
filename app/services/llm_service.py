@@ -1,4 +1,3 @@
-# app/services/llm_service.py
 from groq import Groq
 import os
 from typing import Optional
@@ -10,7 +9,7 @@ class LLMService:
             raise ValueError("GROQ_API_KEY not found in environment variables")
         
         self.client = Groq(api_key=api_key)
-        self.model = "llama2-70b-4096"  # Groq supports different LLaMA variants
+        self.model = "llama3-70b-8192"  # Groq supports different LLaMA variants
         
         # System message for speech assistance
         self.system_message = """You are a helpful AI assistant specializing in 
