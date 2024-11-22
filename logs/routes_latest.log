@@ -1,5 +1,6 @@
-2024-11-22 04:27:02,222 - routes - INFO - Received synthesis request
-2024-11-22 04:27:02,224 - routes - INFO - Request parameters - Text: Hello How are you, Voice: ljspeech, Enhance: False, Speed: 1
-2024-11-22 04:27:02,506 - routes - INFO - Text processing successful
-2024-11-22 04:27:02,518 - routes - INFO - Received speech request
-2024-11-22 04:27:07,319 - routes - INFO - Serving index page
+2024-11-22 04:35:33,038 - routes - INFO - Serving index page
+2024-11-22 04:35:44,045 - routes - INFO - Received synthesis request
+2024-11-22 04:35:44,046 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 04:35:44,770 - routes - INFO - Text processing successful
+2024-11-22 04:35:46,628 - routes - INFO - Received speech request
+2024-11-22 04:35:46,634 - routes - ERROR - Error generating speech: PiperSpeaker.say() got an unexpected keyword argument 'output_file'

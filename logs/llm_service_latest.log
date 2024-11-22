@@ -1,5 +1,15 @@
-2024-11-22 04:26:57,610 - llm_service - INFO - Initializing LLM Service with Groq API
-2024-11-22 04:27:02,225 - llm_service - INFO - Humanizing text: Hello How are you
-2024-11-22 04:27:02,504 - llm_service - DEBUG - Cleaning response text: "Hello, how are you?"
-2024-11-22 04:27:02,505 - llm_service - DEBUG - Cleaned text result: Hello, how are you?
-2024-11-22 04:27:02,505 - llm_service - INFO - Humanized text result: Hello, how are you?
+2024-11-22 04:34:46,934 - llm_service - INFO - Initializing LLM Service with Groq API
+2024-11-22 04:35:44,047 - llm_service - INFO - Humanizing text: Hello, how are you?
+2024-11-22 04:35:44,331 - llm_service - DEBUG - Cleaning response text: The input is already formatted correctly. No changes are needed.
+
+Output: "Hello, how are you?"
+2024-11-22 04:35:44,332 - llm_service - DEBUG - Cleaned text result: Hello, how are you?
+2024-11-22 04:35:44,332 - llm_service - INFO - Humanized text result: Hello, how are you?
+2024-11-22 04:35:44,333 - llm_service - INFO - Enhancing text: Hello, how are you?
+2024-11-22 04:35:44,768 - llm_service - DEBUG - Cleaning response text: Here's an enhanced version:
+
+"Hi, how's your day going so far?"
+
+This rephrased sentence maintains the friendly and casual tone of the original greeting while making it sound more natural and conversational. The added phrase "so far" also makes the question more open-ended and inviting, encouraging the other person to share more about their day.
+2024-11-22 04:35:44,769 - llm_service - DEBUG - Cleaned text result: Hi, how's your day going so far?
+2024-11-22 04:35:44,769 - llm_service - INFO - Enhanced text result: Hi, how's your day going so far?

@@ -292,43 +292,74 @@ async function playAudio(audioData) {
         
         // Create object URL from blob
         const audioUrl = URL.createObjectURL(blob);
-        const audio = new Audio(audioUrl);
+        
+        // Create and configure audio element
+        const audio = new Audio();
+        audio.preload = 'auto';
+        
+        // Set up promise to handle loading
+        const loadPromise = new Promise((resolve, reject) => {
+            audio.addEventListener('canplaythrough', resolve);
+            audio.addEventListener('error', reject);
+            
+            // Set timeout for loading
+            setTimeout(() => reject(new Error('Audio loading timeout')), 10000);
+        });
         
         // Set up event handlers
-        audio.oncanplaythrough = () => {
+        audio.addEventListener('playing', () => {
             audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
-        };
+        });
         
-        audio.onended = () => {
+        audio.addEventListener('ended', () => {
             audioOutput.innerHTML = '<div class="completed">Audio playback completed</div>';
-            URL.revokeObjectURL(audioUrl); // Clean up the URL
-        };
+            URL.revokeObjectURL(audioUrl);
+        });
         
-        audio.onerror = (e) => {
-            console.error('Audio playback error:', e);
+        audio.addEventListener('error', (e) => {
+            console.error('Audio error:', e);
             audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
             URL.revokeObjectURL(audioUrl);
-        };
-
-        // Wait for the audio to load before playing
+        });
+        
+        // Set source and start loading
+        audio.src = audioUrl;
+        
+        // Wait for audio to be ready
+        await loadPromise;
+        
+        // Play the audio
         await audio.play();
         
     } catch (error) {
         console.error('Audio error:', error);
-        audioOutput.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+        audioOutput.innerHTML = '<div class="error">Error preparing audio</div>';
     }
 }
 
-// Add nice hover effects for favorite phrases
+// Add audio context initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Create audio context on user interaction
+    document.addEventListener('click', function initAudioContext() {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        document.removeEventListener('click', initAudioContext);
+    }, { once: true });
+})
+
+// Quick Access Phrases
 document.querySelectorAll('.favorite-phrase').forEach(button => {
-    button.addEventListener('mouseover', () => {
-        button.style.transform = 'translateY(-2px)';
-        button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    });
-    
-    button.addEventListener('mouseout', () => {
-        button.style.transform = 'translateY(0)';
-        button.style.boxShadow = 'none';
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Get the text and set it in the input
+        const phraseText = this.getAttribute('data-text');
+        const textInput = document.getElementById('text-input');
+        textInput.value = phraseText;
+        
+        // Optionally, trigger the form submission automatically
+        document.getElementById('speech-form').dispatchEvent(new Event('submit'));
     });
 });
 
