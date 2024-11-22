@@ -46,3 +46,46 @@ button:hover {
     border: 1px solid #f5c6cb;
     border-radius: 4px;
 }
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+#enhanced-text {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    border: 1px solid #dee2e6;
+}
+
+#enhanced-text h3 {
+    margin-top: 0;
+    color: #495057;
+    font-size: 1.1rem;
+}
+
+#enhanced-text-content {
+    margin: 0;
+    color: #212529;
+}
+
+.error {
+    color: #dc3545;
+    padding: 0.5rem;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}

@@ -14,6 +14,7 @@
                 rows="4" 
                 required
                 aria-label="Text to convert to speech"
+                placeholder="Enter your text here..."
             ></textarea>
         </div>
         
@@ -26,9 +27,79 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input 
+                    type="checkbox" 
+                    id="enhance-toggle" 
+                    name="enhance" 
+                    checked
+                >
+                Enhance text using LLaMA
+            </label>
+        </div>
+
         <button type="submit">Generate Speech</button>
     </form>
     
+    <div id="enhanced-text" class="mt-4" style="display: none;">
+        <h3>Enhanced Text:</h3>
+        <p id="enhanced-text-content"></p>
+    </div>
+    
     <div id="audio-output" class="mt-4" aria-live="polite"></div>
 </div>
+
+<script>
+document.getElementById('speech-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const textInput = document.getElementById('text-input').value;
+    const voiceSelect = document.getElementById('voice-select').value;
+    const enhanceToggle = document.getElementById('enhance-toggle').checked;
+    const audioOutput = document.getElementById('audio-output');
+    const enhancedTextDiv = document.getElementById('enhanced-text');
+    const enhancedTextContent = document.getElementById('enhanced-text-content');
+    
+    // Show loading state
+    audioOutput.innerHTML = '<p>Processing...</p>';
+    enhancedTextDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('/synthesize', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: textInput,
+                voice: voiceSelect,
+                enhance: enhanceToggle
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Show enhanced text if available
+            if (enhanceToggle && data.enhanced_text) {
+                enhancedTextContent.textContent = data.enhanced_text;
+                enhancedTextDiv.style.display = 'block';
+            }
+            
+            // Create and play audio
+            const audio = new Audio(`data:audio/wav;base64,${data.audio}`);
+            audioOutput.innerHTML = '<p>Playing audio...</p>';
+            audio.onended = () => {
+                audioOutput.innerHTML = '<p>Audio playback completed</p>';
+            };
+            audio.play();
+        } else {
+            audioOutput.innerHTML = `<p class="error">Error: ${data.error}</p>`;
+        }
+    } catch (error) {
+        audioOutput.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+    }
+});
+</script>
 {% endblock %}
