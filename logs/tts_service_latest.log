@@ -1,5 +1,5 @@
-2024-11-22 03:54:55,720 - tts_service - INFO - Initializing TTS Service
-2024-11-22 03:54:55,720 - tts_service - INFO - Initializing voice: amy
-2024-11-22 03:54:56,039 - tts_service - INFO - Initializing voice: arctic
-2024-11-22 03:54:56,040 - tts_service - INFO - Initializing voice: bryce
-2024-11-22 03:54:56,041 - tts_service - INFO - All voices initialized successfully
+2024-11-22 04:05:00,171 - tts_service - INFO - Initializing TTS Service
+2024-11-22 04:05:00,171 - tts_service - INFO - Initializing voice: amy
+2024-11-22 04:05:00,486 - tts_service - INFO - Initializing voice: arctic
+2024-11-22 04:05:00,487 - tts_service - INFO - Initializing voice: bryce
+2024-11-22 04:05:00,488 - tts_service - INFO - All voices initialized successfully

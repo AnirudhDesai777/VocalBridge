@@ -30,13 +30,34 @@
                 <div class="form-group voice-select">
                     <label for="voice-select">Voice:</label>
                     <select id="voice-select" name="voice" class="styled-select">
-                        <option value="amy">Amy</option>
-                        <option value="arctic">Arctic</option>
-                        <option value="bryce">Bryce</option>
+                        <option value="amy">Amy (Female)</option>
+                        <option value="arctic">Arctic (Male)</option>
+                        <option value="bryce">Bryce (Male)</option>
+                        <option value="john">John (Male)</option>
+                        <option value="norman">Norman (Male)</option>
+                        <option value="danny">Danny (Male)</option>
+                        <option value="kathleen">Kathleen (Female)</option>
+                        <option value="kristin">Kristin (Female)</option>
+                        <option value="ljspeech">LJ Speech (Female)</option>
                     </select>
                 </div>
 
-                <div class="form-group enhance-toggle">
+                <div class="form-group speed-control">
+                    <label for="speed-control">Speed:</label>
+                    <input 
+                        type="range" 
+                        id="speed-control" 
+                        name="speed" 
+                        min="0.5" 
+                        max="2" 
+                        step="0.1" 
+                        value="1"
+                        class="styled-range"
+                    >
+                    <div class="speed-value">1.0x</div>
+                </div>
+
+                <div class="form-group enhancement-controls">
                     <label class="checkbox-label">
                         <input 
                             type="checkbox" 
@@ -47,6 +68,20 @@
                         <span class="checkbox-text">Enhance with LLaMA</span>
                     </label>
                 </div>
+            </div>
+
+            <div class="advanced-controls">
+                <details>
+                    <summary>Advanced Options</summary>
+                    <div class="form-group quality-select">
+                        <label for="quality-select">Voice Quality:</label>
+                        <select id="quality-select" name="quality" class="styled-select">
+                            <option value="medium">Medium (Recommended)</option>
+                            <option value="low">Low (Faster)</option>
+                            <option value="high">High (Better Quality)</option>
+                        </select>
+                    </div>
+                </details>
             </div>
 
             <button type="submit" class="primary-button">Generate Speech</button>
@@ -72,6 +107,18 @@
         </div>
         
         <div id="audio-output" class="audio-output mt-4" aria-live="polite"></div>
+
+        <!-- Favorites Section -->
+        <div id="favorites" class="favorites-section mt-4">
+            <h3>Quick Access Phrases</h3>
+            <div class="favorites-grid">
+                <button class="favorite-phrase" data-text="Hello, how are you?">Hello, how are you?</button>
+                <button class="favorite-phrase" data-text="Thank you very much.">Thank you very much</button>
+                <button class="favorite-phrase" data-text="Could you please help me?">Need help</button>
+                <button class="favorite-phrase" data-text="I don't understand.">Don't understand</button>
+                <!-- Add more favorite phrases -->
+            </div>
+        </div>
     </div>
 </div>
 
@@ -119,6 +166,18 @@ predictionsDiv.addEventListener('click', (e) => {
     }
 });
 
+// For speed control
+document.getElementById('speed-control').addEventListener('input', (e) => {
+    document.querySelector('.speed-value').textContent = `${e.target.value}x`;
+});
+
+// Favorite phrases
+document.querySelectorAll('.favorite-phrase').forEach(button => {
+    button.addEventListener('click', () => {
+        document.getElementById('text-input').value = button.dataset.text;
+    });
+});
+
 // Form Submission and Enhancement Review
 document.getElementById('speech-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -126,68 +185,92 @@ document.getElementById('speech-form').addEventListener('submit', async (e) => {
     const textInput = document.getElementById('text-input').value;
     const voiceSelect = document.getElementById('voice-select').value;
     const enhanceToggle = document.getElementById('enhance-toggle').checked;
+    const speedValue = document.getElementById('speed-control').value;
     const audioOutput = document.getElementById('audio-output');
     const enhancementReview = document.getElementById('enhancement-review');
     
-    // Show loading state
     audioOutput.innerHTML = '<div class="loading">Processing your request...</div>';
     enhancementReview.style.display = 'none';
     
     try {
-        const response = await fetch('/synthesize', {
+        // First get the enhanced/humanized text
+        const textResponse = await fetch('/synthesize', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 text: textInput,
                 voice: voiceSelect,
-                enhance: enhanceToggle
+                enhance: enhanceToggle,
+                speed: parseFloat(speedValue)
             })
         });
         
-        const data = await response.json();
+        const textData = await textResponse.json();
         
-        if (data.success) {
-            // If text was enhanced, show the review section
-            if (enhanceToggle && data.enhanced_text) {
-                document.getElementById('original-text-content').textContent = textInput;
-                document.getElementById('enhanced-text-content').textContent = data.enhanced_text;
+        if (textData.success) {
+            if (enhanceToggle && textData.enhanced_text) {
+                // Show enhancement review
+                document.getElementById('original-text-content').textContent = textData.original_text;
+                document.getElementById('enhanced-text-content').textContent = textData.enhanced_text;
                 enhancementReview.style.display = 'block';
                 audioOutput.innerHTML = '';
                 
-                // Handle enhancement review actions
-                document.getElementById('accept-enhancement').onclick = () => {
-                    playAudio(data.audio);
-                    enhancementReview.style.display = 'none';
-                };
-                
-                document.getElementById('reject-enhancement').onclick = async () => {
-                    // Generate speech with original text
-                    const originalResponse = await fetch('/synthesize', {
+                // Handle accept button
+                document.getElementById('accept-enhancement').onclick = async () => {
+                    const speakResponse = await fetch('/speak', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            text: textInput,
+                            text: textData.enhanced_text,
                             voice: voiceSelect,
-                            enhance: false
+                            speed: parseFloat(speedValue)
                         })
                     });
                     
-                    const originalData = await originalResponse.json();
-                    if (originalData.success) {
-                        playAudio(originalData.audio);
+                    const audioData = await speakResponse.json();
+                    if (audioData.success) {
+                        playAudio(audioData.audio);
+                    }
+                    enhancementReview.style.display = 'none';
+                };
+                
+                // Handle reject button
+                document.getElementById('reject-enhancement').onclick = async () => {
+                    const speakResponse = await fetch('/speak', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            text: textData.humanized_text,
+                            voice: voiceSelect,
+                            speed: parseFloat(speedValue)
+                        })
+                    });
+                    
+                    const audioData = await speakResponse.json();
+                    if (audioData.success) {
+                        playAudio(audioData.audio);
                     }
                     enhancementReview.style.display = 'none';
                 };
             } else {
-                // If no enhancement, play audio directly
-                playAudio(data.audio);
+                // Directly speak humanized text
+                const speakResponse = await fetch('/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: textData.humanized_text,
+                        voice: voiceSelect,
+                        speed: parseFloat(speedValue)
+                    })
+                });
+                
+                const audioData = await speakResponse.json();
+                if (audioData.success) {
+                    playAudio(audioData.audio);
+                }
             }
         } else {
-            audioOutput.innerHTML = `<div class="error">Error: ${data.error}</div>`;
+            audioOutput.innerHTML = `<div class="error">Error: ${textData.error}</div>`;
         }
     } catch (error) {
         audioOutput.innerHTML = `<div class="error">Error: ${error.message}</div>`;
@@ -197,11 +280,27 @@ document.getElementById('speech-form').addEventListener('submit', async (e) => {
 function playAudio(audioData) {
     const audioOutput = document.getElementById('audio-output');
     const audio = new Audio(`data:audio/wav;base64,${audioData}`);
+    
     audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
+    
     audio.onended = () => {
         audioOutput.innerHTML = '<div class="completed">Audio playback completed</div>';
     };
-    audio.play();
+    
+    audio.onerror = (e) => {
+        console.error('Audio playback error:', e);
+        audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+    };
+    
+    try {
+        audio.play().catch(error => {
+            console.error('Audio play error:', error);
+            audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+        });
+    } catch (error) {
+        console.error('Audio play error:', error);
+        audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+    }
 }
 </script>
 {% endblock %}
