@@ -1,10 +1,15 @@
-2024-11-22 03:24:21,443 - routes - INFO - Received synthesis request
-2024-11-22 03:24:21,444 - routes - INFO - Request parameters - Text: This is a test to see if the log files are generated automatically, Voice: amy, Enhance: True
-2024-11-22 03:24:21,445 - routes - DEBUG - Enhancing text with LLM
-2024-11-22 03:24:21,884 - routes - INFO - Text enhanced: I'm running a test to determine if the log files are generated automatically.
-2024-11-22 03:24:21,884 - routes - DEBUG - Converting text to speech
-2024-11-22 03:24:28,776 - routes - INFO - Request processed successfully
-2024-11-22 03:25:40,630 - routes - INFO - Received synthesis request
-2024-11-22 03:25:40,631 - routes - INFO - Request parameters - Text: This is a test to see if the log files are generated automatically, Voice: amy, Enhance: False
-2024-11-22 03:25:40,632 - routes - DEBUG - Converting text to speech
-2024-11-22 03:25:46,652 - routes - INFO - Request processed successfully
+2024-11-22 03:34:10,176 - routes - INFO - Serving index page
+2024-11-22 03:34:24,295 - routes - INFO - Received synthesis request
+2024-11-22 03:34:24,297 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True
+2024-11-22 03:34:24,298 - routes - DEBUG - Enhancing text with LLM
+2024-11-22 03:34:24,638 - routes - INFO - Text enhanced: Hi, how's it going today?
+2024-11-22 03:34:24,638 - routes - DEBUG - Converting text to speech
+2024-11-22 03:34:27,906 - routes - INFO - Request processed successfully
+2024-11-22 03:34:44,108 - routes - INFO - Received synthesis request
+2024-11-22 03:34:44,110 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: False
+2024-11-22 03:34:44,110 - routes - DEBUG - Converting text to speech
+2024-11-22 03:34:46,859 - routes - INFO - Request processed successfully
+2024-11-22 03:35:23,356 - routes - INFO - Received synthesis request
+2024-11-22 03:35:23,358 - routes - INFO - Request parameters - Text: This is me trying to have a natural conversation with you, Voice: amy, Enhance: False
+2024-11-22 03:35:23,359 - routes - DEBUG - Converting text to speech
+2024-11-22 03:35:28,486 - routes - INFO - Request processed successfully
