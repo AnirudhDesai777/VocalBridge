@@ -10,14 +10,14 @@ VocalBridge is a web-based speech assistance tool designed to help people with s
   - Text Humanization: Adds natural breaks and punctuation for better TTS output
   - Content Enhancement: Optional AI-powered text enhancement for clearer communication
 - **Voice Customization**: Adjust speech rate and voice selection
-- **Predictive Text**: Smart text predictions for faster input
+- **Quick Access Phrases**: Speak common phrases with one tap for faster input
 - **Review System**: Preview and approve AI-enhanced text before speaking
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/vocalbridge.git
+git clone https://github.com/AnirudhDesai777/VocalBridge.git
 cd vocalbridge
 ```
 
@@ -118,10 +118,14 @@ The application maintains detailed logs in the `logs` directory:
 - Console output for development
 
 
+## Screenshots
+![screenshot of web interface](image.png)
 
-## License
+## Future Scope
+- Use PIPER TTS replacing yapper-tts
+- Real time contolling of speed
+- Individual Customization
 
-MIT License - see LICENSE file for details
 
 ## Acknowledgments
 

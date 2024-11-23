@@ -1,0 +1,46 @@
+2024-11-23 00:02:01,487 - routes - INFO - Serving index page
+2024-11-23 00:02:58,805 - routes - INFO - Serving index page
+2024-11-23 00:04:33,481 - routes - INFO - Received synthesis request
+2024-11-23 00:04:33,485 - routes - INFO - Request parameters - Text: Hey, how are you?, Voice: amy, Enhance: False, Speed: 1.2
+2024-11-23 00:04:34,255 - routes - INFO - Text processing successful
+2024-11-23 00:04:34,263 - routes - INFO - Received speech request
+2024-11-23 00:05:28,410 - routes - INFO - Received synthesis request
+2024-11-23 00:05:28,412 - routes - INFO - Request parameters - Text: I am in a meeting. Hello Everyone. This is test, Voice: amy, Enhance: True, Speed: 1.2
+2024-11-23 00:05:29,811 - routes - INFO - Text processing successful
+2024-11-23 00:06:05,926 - routes - INFO - Received speech request
+2024-11-23 00:06:27,788 - routes - INFO - Received synthesis request
+2024-11-23 00:06:27,789 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1.2
+2024-11-23 00:06:28,671 - routes - INFO - Text processing successful
+2024-11-23 00:06:30,100 - routes - INFO - Received synthesis request
+2024-11-23 00:06:30,102 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1.2
+2024-11-23 00:06:31,005 - routes - INFO - Text processing successful
+2024-11-23 00:06:32,704 - routes - INFO - Received speech request
+2024-11-23 00:06:37,022 - routes - INFO - Received synthesis request
+2024-11-23 00:06:37,023 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1.2
+2024-11-23 00:06:37,872 - routes - INFO - Text processing successful
+2024-11-23 00:06:41,492 - routes - INFO - Received speech request
+2024-11-23 00:21:42,917 - routes - INFO - Serving index page
+2024-11-23 00:21:51,508 - routes - INFO - Received synthesis request
+2024-11-23 00:21:51,511 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
+2024-11-23 00:21:52,647 - routes - INFO - Text processing successful
+2024-11-23 00:21:54,740 - routes - INFO - Received speech request
+2024-11-23 00:26:20,017 - routes - INFO - Received synthesis request
+2024-11-23 00:26:20,019 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: False, Speed: 1.2
+2024-11-23 00:26:20,314 - routes - INFO - Text processing successful
+2024-11-23 00:26:20,323 - routes - INFO - Received speech request
+2024-11-23 00:28:33,110 - routes - INFO - Received synthesis request
+2024-11-23 00:28:33,112 - routes - INFO - Request parameters - Text: I am in AI. Wworking as deep learning engineer. Expereince of 1 year. Expereiecne working with LLMS, compyuter vision, Voice: amy, Enhance: True, Speed: 1.2
+2024-11-23 00:28:34,830 - routes - INFO - Text processing successful
+2024-11-23 00:29:08,945 - routes - INFO - Received speech request
+2024-11-23 00:29:58,099 - routes - INFO - Received synthesis request
+2024-11-23 00:29:58,100 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 2
+2024-11-23 00:29:59,115 - routes - INFO - Text processing successful
+2024-11-23 00:30:01,862 - routes - INFO - Received synthesis request
+2024-11-23 00:30:01,865 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: False, Speed: 2
+2024-11-23 00:30:02,169 - routes - INFO - Text processing successful
+2024-11-23 00:30:02,180 - routes - INFO - Received speech request
+2024-11-23 00:30:31,427 - routes - INFO - Received synthesis request
+2024-11-23 00:30:31,428 - routes - INFO - Request parameters - Text: I don't understand the map. Please explain, Voice: amy, Enhance: True, Speed: 2
+2024-11-23 00:30:32,570 - routes - INFO - Text processing successful
+2024-11-23 00:30:42,545 - routes - INFO - Received speech request
+2024-11-23 00:54:55,688 - routes - INFO - Serving index page

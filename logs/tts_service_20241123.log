@@ -1,0 +1,84 @@
+2024-11-23 00:01:55,793 - tts_service - INFO - Initializing TTS Service
+2024-11-23 00:01:55,794 - tts_service - INFO - Initializing voice: amy (medium)
+2024-11-23 00:01:55,975 - tts_service - INFO - Successfully initialized amy (medium)
+2024-11-23 00:01:55,976 - tts_service - INFO - Initializing voice: amy (low)
+2024-11-23 00:01:55,978 - tts_service - INFO - Successfully initialized amy (low)
+2024-11-23 00:01:55,979 - tts_service - INFO - Initializing voice: arctic (medium)
+2024-11-23 00:01:55,982 - tts_service - INFO - Successfully initialized arctic (medium)
+2024-11-23 00:01:55,983 - tts_service - INFO - Initializing voice: bryce (medium)
+2024-11-23 00:01:55,985 - tts_service - INFO - Successfully initialized bryce (medium)
+2024-11-23 00:01:55,986 - tts_service - INFO - Initializing voice: danny (low)
+2024-11-23 00:01:55,987 - tts_service - INFO - Successfully initialized danny (low)
+2024-11-23 00:01:55,988 - tts_service - INFO - Initializing voice: john (medium)
+2024-11-23 00:01:55,990 - tts_service - INFO - Successfully initialized john (medium)
+2024-11-23 00:01:55,991 - tts_service - INFO - Initializing voice: kathleen (low)
+2024-11-23 00:01:55,992 - tts_service - INFO - Successfully initialized kathleen (low)
+2024-11-23 00:01:55,993 - tts_service - INFO - Initializing voice: kristin (medium)
+2024-11-23 00:01:55,994 - tts_service - INFO - Successfully initialized kristin (medium)
+2024-11-23 00:01:55,995 - tts_service - INFO - Initializing voice: ljspeech (high)
+2024-11-23 00:01:55,996 - tts_service - INFO - Successfully initialized ljspeech (high)
+2024-11-23 00:01:55,997 - tts_service - INFO - Initializing voice: ljspeech (medium)
+2024-11-23 00:01:55,999 - tts_service - INFO - Successfully initialized ljspeech (medium)
+2024-11-23 00:01:56,000 - tts_service - INFO - Initializing voice: norman (medium)
+2024-11-23 00:01:56,002 - tts_service - INFO - Successfully initialized norman (medium)
+2024-11-23 00:01:56,002 - tts_service - INFO - Voice initialization completed
+2024-11-23 00:04:34,264 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: Hey...  how are you?
+2024-11-23 00:04:34,267 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_mzo3d5u0.wav
+2024-11-23 00:04:37,856 - tts_service - INFO - Speech generation successful
+2024-11-23 00:04:37,857 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_mzo3d5u0.wav
+2024-11-23 00:06:05,928 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: Hello,  everyone.  I just wanted to let you know that I'm currently in a meeting,  and I'm conducting a quick test.
+2024-11-23 00:06:05,931 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_18vxbrjb.wav
+2024-11-23 00:06:08,465 - tts_service - INFO - Speech generation successful
+2024-11-23 00:06:08,470 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_18vxbrjb.wav
+2024-11-23 00:06:32,705 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: Hello...  how are you?
+2024-11-23 00:06:32,707 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_mbap4e19.wav
+2024-11-23 00:06:34,237 - tts_service - INFO - Speech generation successful
+2024-11-23 00:06:34,238 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_mbap4e19.wav
+2024-11-23 00:06:41,494 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: Could you explain that again?  I'm not quite getting it.
+2024-11-23 00:06:41,499 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_m8482hyj.wav
+2024-11-23 00:06:43,335 - tts_service - INFO - Speech generation successful
+2024-11-23 00:06:43,337 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_m8482hyj.wav
+2024-11-23 00:21:54,742 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1, Quality: medium, Text: Hi,  how are you doing today?
+2024-11-23 00:21:54,746 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_gghobsii.wav
+2024-11-23 00:21:56,186 - tts_service - INFO - Speech generation successful
+2024-11-23 00:21:56,188 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_gghobsii.wav
+2024-11-23 00:26:20,324 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: Hello...  how are you?
+2024-11-23 00:26:20,326 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_6incbdoa.wav
+2024-11-23 00:26:21,654 - tts_service - INFO - Speech generation successful
+2024-11-23 00:26:21,656 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_6incbdoa.wav
+2024-11-23 00:29:08,947 - tts_service - INFO - Generating speech - Voice: amy, Speed: 1.2, Quality: medium, Text: I'm currently working in the field of Artificial Intelligence,  where I serve as a deep learning engineer.  With over a year of experience under my belt,  I've had the opportunity to work extensively with Large Language Models and computer vision technologies.
+2024-11-23 00:29:08,950 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_2xyd558q.wav
+2024-11-23 00:29:12,437 - tts_service - INFO - Speech generation successful
+2024-11-23 00:29:12,438 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_2xyd558q.wav
+2024-11-23 00:30:02,182 - tts_service - INFO - Generating speech - Voice: amy, Speed: 2, Quality: medium, Text: I don't understand...
+2024-11-23 00:30:02,188 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_zbtdr5dz.wav
+2024-11-23 00:30:03,293 - tts_service - INFO - Speech generation successful
+2024-11-23 00:30:03,295 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_zbtdr5dz.wav
+2024-11-23 00:30:42,547 - tts_service - INFO - Generating speech - Voice: amy, Speed: 2, Quality: medium, Text: Could you walk me through this map?  I'm having a little trouble understanding it.
+2024-11-23 00:30:42,555 - tts_service - DEBUG - Created temporary file: C:\Users\aniru\AppData\Local\Temp\speech_7e5afc2u.wav
+2024-11-23 00:30:44,241 - tts_service - INFO - Speech generation successful
+2024-11-23 00:30:44,242 - tts_service - DEBUG - Cleaned up temporary file: C:\Users\aniru\AppData\Local\Temp\speech_7e5afc2u.wav
+2024-11-23 00:54:50,812 - tts_service - INFO - Initializing TTS Service
+2024-11-23 00:54:50,813 - tts_service - INFO - Initializing voice: amy (medium)
+2024-11-23 00:54:50,910 - tts_service - INFO - Successfully initialized amy (medium)
+2024-11-23 00:54:50,910 - tts_service - INFO - Initializing voice: amy (low)
+2024-11-23 00:54:50,911 - tts_service - INFO - Successfully initialized amy (low)
+2024-11-23 00:54:50,912 - tts_service - INFO - Initializing voice: arctic (medium)
+2024-11-23 00:54:50,913 - tts_service - INFO - Successfully initialized arctic (medium)
+2024-11-23 00:54:50,913 - tts_service - INFO - Initializing voice: bryce (medium)
+2024-11-23 00:54:50,915 - tts_service - INFO - Successfully initialized bryce (medium)
+2024-11-23 00:54:50,915 - tts_service - INFO - Initializing voice: danny (low)
+2024-11-23 00:54:50,915 - tts_service - INFO - Successfully initialized danny (low)
+2024-11-23 00:54:50,916 - tts_service - INFO - Initializing voice: john (medium)
+2024-11-23 00:54:50,918 - tts_service - INFO - Successfully initialized john (medium)
+2024-11-23 00:54:50,919 - tts_service - INFO - Initializing voice: kathleen (low)
+2024-11-23 00:54:50,920 - tts_service - INFO - Successfully initialized kathleen (low)
+2024-11-23 00:54:50,921 - tts_service - INFO - Initializing voice: kristin (medium)
+2024-11-23 00:54:50,922 - tts_service - INFO - Successfully initialized kristin (medium)
+2024-11-23 00:54:50,923 - tts_service - INFO - Initializing voice: ljspeech (high)
+2024-11-23 00:54:50,924 - tts_service - INFO - Successfully initialized ljspeech (high)
+2024-11-23 00:54:50,925 - tts_service - INFO - Initializing voice: ljspeech (medium)
+2024-11-23 00:54:50,926 - tts_service - INFO - Successfully initialized ljspeech (medium)
+2024-11-23 00:54:50,926 - tts_service - INFO - Initializing voice: norman (medium)
+2024-11-23 00:54:50,927 - tts_service - INFO - Successfully initialized norman (medium)
+2024-11-23 00:54:50,928 - tts_service - INFO - Voice initialization completed

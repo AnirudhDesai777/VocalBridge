@@ -1,0 +1,209 @@
+2024-11-23 00:01:56,005 - llm_service - INFO - Initializing LLM Service with Groq API
+2024-11-23 00:04:33,487 - llm_service - INFO - Humanizing text: Hey, how are you?
+2024-11-23 00:04:34,252 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hey... how are you?"
+2024-11-23 00:04:34,253 - llm_service - DEBUG - Cleaned text result: Hey... how are you?
+2024-11-23 00:04:34,254 - llm_service - INFO - Humanized text result: Hey...  how are you?
+2024-11-23 00:05:28,418 - llm_service - INFO - Humanizing text: I am in a meeting. Hello Everyone. This is test
+2024-11-23 00:05:29,110 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"I am in a meeting... Hello, everyone. This is a test."
+
+I added a slight pause after "meeting" to separate the two independent clauses, and a comma after "Hello" to make the greeting more natural. I also added the indefinite article "a" to "test" to make the sentence more conversational.
+2024-11-23 00:05:29,111 - llm_service - DEBUG - Cleaned text result: I am in a meeting... Hello, everyone. This is a test.
+2024-11-23 00:05:29,111 - llm_service - INFO - Humanized text result: I am in a meeting...  Hello,  everyone.  This is a test.
+2024-11-23 00:05:29,112 - llm_service - INFO - Enhancing text: I am in a meeting...  Hello,  everyone.  This is a test.
+2024-11-23 00:05:29,809 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version of the input, optimized for natural speech synthesis:
+
+"Hello, everyone. I just wanted to let you know that I'm currently in a meeting, and I'm conducting a quick test."
+
+Changes made:
+
+* Reversed the sentence order to create a more natural conversational flow
+* Added a brief introductory phrase "I just wanted to let you know" to make the sentence sound more spontaneous and conversational
+* Changed "This is a test" to "I'm conducting a quick test" to make the language more natural and friendly
+* Emphasized "currently" to create a sense of immediacy and clarity
+* Used a more conversational tone to make the speech sound more approachable and human-like
+2024-11-23 00:05:29,809 - llm_service - DEBUG - Cleaned text result: Hello, everyone. I just wanted to let you know that I'm currently in a meeting, and I'm conducting a quick test.
+2024-11-23 00:05:29,810 - llm_service - INFO - Enhanced text result: Hello,  everyone.  I just wanted to let you know that I'm currently in a meeting,  and I'm conducting a quick test.
+2024-11-23 00:06:27,791 - llm_service - INFO - Humanizing text: Hello, how are you?
+2024-11-23 00:06:28,075 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hello... how are you?"
+2024-11-23 00:06:28,076 - llm_service - DEBUG - Cleaned text result: Hello... how are you?
+2024-11-23 00:06:28,076 - llm_service - INFO - Humanized text result: Hello...  how are you?
+2024-11-23 00:06:28,078 - llm_service - INFO - Enhancing text: Hello...  how are you?
+2024-11-23 00:06:28,669 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version with a more natural conversational flow:
+
+"Hi, how's it going today?"
+
+Changes I made:
+
+* Replaced "Hello" with "Hi" to make it more casual and conversational.
+* Changed "how are you" to "how's it going today" to make the question more specific and engaging. The added "today" also helps to create a sense of context and makes the question more relevant.
+* The phrase "how's it going" is a more common and natural way to ask about someone's well-being in spoken language, and it flows better when spoken aloud.
+
+This revised phrase should sound more natural and conversational when spoken through a Text-to-Speech system.
+2024-11-23 00:06:28,669 - llm_service - DEBUG - Cleaned text result: Hi, how's it going today?
+2024-11-23 00:06:28,670 - llm_service - INFO - Enhanced text result: Hi,  how's it going today?
+2024-11-23 00:06:30,103 - llm_service - INFO - Humanizing text: Hello, how are you?
+2024-11-23 00:06:30,308 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hello... how are you?"
+2024-11-23 00:06:30,311 - llm_service - DEBUG - Cleaned text result: Hello... how are you?
+2024-11-23 00:06:30,312 - llm_service - INFO - Humanized text result: Hello...  how are you?
+2024-11-23 00:06:30,313 - llm_service - INFO - Enhancing text: Hello...  how are you?
+2024-11-23 00:06:31,003 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version with a more natural conversational flow:
+
+"Hi, how's your day going so far?"
+
+This version is more suitable for speech synthesis because:
+
+* It starts with a more casual and friendly greeting ("Hi" instead of "Hello")
+* It uses a more conversational phrase ("how's your day going so far") that sounds more natural and relaxed when spoken aloud
+* The phrase has a better rhythm and pacing, with a slight pause after "Hi" to create a more natural flow
+* The tone is friendly and inquiring, which is suitable for a casual conversation
+* The emphasis is on "your day" to convey interest and care for the listener's well-being
+
+The original phrase "Hello... how are you?" can sound a bit stilted and formal when spoken aloud, whereas the rephrased version has a more natural and conversational tone.
+2024-11-23 00:06:31,003 - llm_service - DEBUG - Cleaned text result: Hi, how's your day going so far?
+2024-11-23 00:06:31,004 - llm_service - INFO - Enhanced text result: Hi,  how's your day going so far?
+2024-11-23 00:06:37,025 - llm_service - INFO - Humanizing text: I don't understand
+2024-11-23 00:06:37,455 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"I don't understand..."
+
+The added ellipsis (...) creates a slight pause for emphasis, making the sentence sound more natural when spoken by a TTS system.
+2024-11-23 00:06:37,457 - llm_service - DEBUG - Cleaned text result: I don't understand...
+2024-11-23 00:06:37,457 - llm_service - INFO - Humanized text result: I don't understand...
+2024-11-23 00:06:37,459 - llm_service - INFO - Enhancing text: I don't understand...
+2024-11-23 00:06:37,870 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version with a more natural flow and conversational tone:
+
+"Could you explain that again? I'm not quite getting it."
+
+This revised sentence maintains the original meaning of uncertainty, but phrases it in a more polite and conversational way, making it sound more natural when spoken aloud. The added phrase "Could you explain that again?" also makes the sentence more interactive and encourages the listener to provide clarification.
+2024-11-23 00:06:37,870 - llm_service - DEBUG - Cleaned text result: Could you explain that again? I'm not quite getting it.
+2024-11-23 00:06:37,871 - llm_service - INFO - Enhanced text result: Could you explain that again?  I'm not quite getting it.
+2024-11-23 00:21:51,513 - llm_service - INFO - Humanizing text: Hello, how are you?
+2024-11-23 00:21:52,059 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hello... how are you?"
+2024-11-23 00:21:52,060 - llm_service - DEBUG - Cleaned text result: Hello... how are you?
+2024-11-23 00:21:52,060 - llm_service - INFO - Humanized text result: Hello...  how are you?
+2024-11-23 00:21:52,061 - llm_service - INFO - Enhancing text: Hello...  how are you?
+2024-11-23 00:21:52,645 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version with a more natural flow and conversational tone:
+
+"Hi, how are you doing today?"
+
+Changes I made include:
+
+* Replacing "Hello" with "Hi" for a more casual and friendly tone
+* Adding "doing today" to make the question more specific and conversational
+* Improving the rhythm and pacing of the sentence for smoother speech synthesis
+
+This revised sentence should sound more natural and engaging when spoken aloud.
+2024-11-23 00:21:52,645 - llm_service - DEBUG - Cleaned text result: Hi, how are you doing today?
+2024-11-23 00:21:52,646 - llm_service - INFO - Enhanced text result: Hi,  how are you doing today?
+2024-11-23 00:26:20,021 - llm_service - INFO - Humanizing text: Hello, how are you?
+2024-11-23 00:26:20,312 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"Hello... how are you?"
+2024-11-23 00:26:20,313 - llm_service - DEBUG - Cleaned text result: Hello... how are you?
+2024-11-23 00:26:20,313 - llm_service - INFO - Humanized text result: Hello...  how are you?
+2024-11-23 00:28:33,114 - llm_service - INFO - Humanizing text: I am in AI. Wworking as deep learning engineer. Expereince of 1 year. Expereiecne working with LLMS, compyuter vision
+2024-11-23 00:28:33,901 - llm_service - DEBUG - Cleaning response text: Here is the formatted text for natural speech:
+
+"I am in AI... Working as a deep learning engineer. I have an experience of 1 year... Experience working with LLMs, computer vision."
+
+Let me explain the changes I made:
+
+* Added an ellipsis (...) after "AI" to create a slight pause for emphasis.
+* Added "a" before "deep learning engineer" to make the sentence more natural.
+* Changed "Expereince" to "Experience" (twice) to correct the spelling error.
+* Added "I have" before "an experience of 1 year" to make the sentence more natural and fluid.
+* Added a period after "1 year" to create a natural break and pause.
+* Changed "LLMS" to "LLMs" to correct the capitalization.
+* Added a comma after "LLMs" to separate the items in the list.
+* Retained the original sentence structure and word order to maintain the original content.
+2024-11-23 00:28:33,901 - llm_service - DEBUG - Cleaned text result: I am in AI... Working as a deep learning engineer. I have an experience of 1 year... Experience working with LLMs, computer vision.
+2024-11-23 00:28:33,902 - llm_service - INFO - Humanized text result: I am in AI...  Working as a deep learning engineer.  I have an experience of 1 year...  Experience working with LLMs,  computer vision.
+2024-11-23 00:28:33,903 - llm_service - INFO - Enhancing text: I am in AI...  Working as a deep learning engineer.  I have an experience of 1 year...  Experience working with LLMs,  computer vision.
+2024-11-23 00:28:34,827 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version of the input, optimized for natural speech synthesis:
+
+"I'm currently working in the field of Artificial Intelligence, where I serve as a deep learning engineer. With over a year of experience under my belt, I've had the opportunity to work extensively with Large Language Models and computer vision technologies."
+
+Changes made:
+
+* Simplified sentence structure for a more natural flow
+* Added contractions ("I'm" instead of "I am") for a more conversational tone
+* Changed "Working as a deep learning engineer" to "where I serve as a deep learning engineer" for better sentence cohesion
+* Rephrased "I have an experience of 1 year" to "With over a year of experience under my belt" for a more natural way of expressing experience
+* Changed "Experience working with" to "had the opportunity to work extensively with" to make the sentence more dynamic and engaging
+* Emphasized "Large Language Models" to give it a clear and distinct pronunciation
+* Maintained the original meaning while making it sound more natural and fluent for speech synthesis.
+2024-11-23 00:28:34,828 - llm_service - DEBUG - Cleaned text result: I'm currently working in the field of Artificial Intelligence, where I serve as a deep learning engineer. With over a year of experience under my belt, I've had the opportunity to work extensively with Large Language Models and computer vision technologies.
+2024-11-23 00:28:34,829 - llm_service - INFO - Enhanced text result: I'm currently working in the field of Artificial Intelligence,  where I serve as a deep learning engineer.  With over a year of experience under my belt,  I've had the opportunity to work extensively with Large Language Models and computer vision technologies.
+2024-11-23 00:29:58,100 - llm_service - INFO - Humanizing text: I don't understand
+2024-11-23 00:29:58,470 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"I don't understand..."
+
+This adds a slight pause at the end, indicating a trailing thought or an invitation for response, which is common in natural speech.
+2024-11-23 00:29:58,471 - llm_service - DEBUG - Cleaned text result: I don't understand...
+2024-11-23 00:29:58,472 - llm_service - INFO - Humanized text result: I don't understand...
+2024-11-23 00:29:58,472 - llm_service - INFO - Enhancing text: I don't understand...
+2024-11-23 00:29:59,114 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version that sounds more natural and conversational for speech synthesis:
+
+"Could you explain that again? I'm not quite following."
+
+Or, depending on the tone you want to convey:
+
+"I'm having a bit of trouble understanding that. Can you clarify?"
+
+Or, if you want to sound more inquiring:
+
+"What do you mean by that? I'm not sure I get it."
+
+These rephrased sentences aim to:
+
+* Improve natural conversational flow by using more conversational language
+* Use clear and pronunciation-friendly words
+* Create a more natural pace and rhythm
+* Convey a context-appropriate tone of curiosity and inquiry
+* Smoothly transition between ideas
+* Follow natural speech patterns
+* Emphasize the main point of seeking clarification
+2024-11-23 00:29:59,114 - llm_service - DEBUG - Cleaned text result: Could you explain that again? I'm not quite following.
+2024-11-23 00:29:59,114 - llm_service - INFO - Enhanced text result: Could you explain that again?  I'm not quite following.
+2024-11-23 00:30:01,865 - llm_service - INFO - Humanizing text: I don't understand
+2024-11-23 00:30:02,166 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"I don't understand..."
+
+This adds a slight pause at the end, indicating a trailing thought or a sense of uncertainty, which is common in natural speech.
+2024-11-23 00:30:02,167 - llm_service - DEBUG - Cleaned text result: I don't understand...
+2024-11-23 00:30:02,168 - llm_service - INFO - Humanized text result: I don't understand...
+2024-11-23 00:30:31,430 - llm_service - INFO - Humanizing text: I don't understand the map. Please explain
+2024-11-23 00:30:31,908 - llm_service - DEBUG - Cleaning response text: Here is the formatted text:
+
+"I don't understand the map... Please explain."
+
+I added an ellipsis (...) to create a slight pause before "Please explain", making the sentence sound more natural and conversational when spoken by a TTS system.
+2024-11-23 00:30:31,909 - llm_service - DEBUG - Cleaned text result: I don't understand the map... Please explain.
+2024-11-23 00:30:31,909 - llm_service - INFO - Humanized text result: I don't understand the map...  Please explain.
+2024-11-23 00:30:31,910 - llm_service - INFO - Enhancing text: I don't understand the map...  Please explain.
+2024-11-23 00:30:32,568 - llm_service - DEBUG - Cleaning response text: Here's a rephrased version with a more natural conversational flow:
+
+"Could you walk me through this map? I'm having a little trouble understanding it."
+
+Changes made:
+
+* Started with a polite request ("Could you...") to make the tone more courteous
+* Replaced "I don't understand" with "I'm having a little trouble understanding" to make the language more conversational
+* Changed the sentence structure to make it more fluid and natural-sounding
+* Added "walk me through" to make the request more specific and clear
+* Removed the abrupt "Please explain" and instead integrated the request into a single sentence for a smoother flow.
+2024-11-23 00:30:32,569 - llm_service - DEBUG - Cleaned text result: Could you walk me through this map? I'm having a little trouble understanding it.
+2024-11-23 00:30:32,569 - llm_service - INFO - Enhanced text result: Could you walk me through this map?  I'm having a little trouble understanding it.
+2024-11-23 00:54:50,930 - llm_service - INFO - Initializing LLM Service with Groq API
