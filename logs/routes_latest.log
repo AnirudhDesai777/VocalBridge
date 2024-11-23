@@ -1,6 +1,37 @@
-2024-11-22 04:35:33,038 - routes - INFO - Serving index page
-2024-11-22 04:35:44,045 - routes - INFO - Received synthesis request
-2024-11-22 04:35:44,046 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
-2024-11-22 04:35:44,770 - routes - INFO - Text processing successful
-2024-11-22 04:35:46,628 - routes - INFO - Received speech request
-2024-11-22 04:35:46,634 - routes - ERROR - Error generating speech: PiperSpeaker.say() got an unexpected keyword argument 'output_file'
+2024-11-22 22:25:45,329 - routes - INFO - Serving index page
+2024-11-22 22:29:29,571 - routes - INFO - Serving index page
+2024-11-22 22:30:15,088 - routes - INFO - Serving index page
+2024-11-22 22:30:31,154 - routes - INFO - Serving index page
+2024-11-22 22:30:39,084 - routes - INFO - Serving index page
+2024-11-22 22:31:23,454 - routes - INFO - Serving index page
+2024-11-22 22:37:32,371 - routes - INFO - Serving index page
+2024-11-22 22:37:47,770 - routes - INFO - Serving index page
+2024-11-22 22:37:52,380 - routes - INFO - Received synthesis request
+2024-11-22 22:37:52,382 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:37:53,480 - routes - INFO - Text processing successful
+2024-11-22 22:37:59,787 - routes - INFO - Received synthesis request
+2024-11-22 22:37:59,789 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:38:00,577 - routes - INFO - Text processing successful
+2024-11-22 22:38:06,233 - routes - INFO - Received synthesis request
+2024-11-22 22:38:06,234 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:38:07,343 - routes - INFO - Text processing successful
+2024-11-22 22:38:10,969 - routes - INFO - Received speech request
+2024-11-22 22:38:27,919 - routes - INFO - Received synthesis request
+2024-11-22 22:38:27,921 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:38:34,495 - routes - INFO - Text processing successful
+2024-11-22 22:38:37,129 - routes - INFO - Received speech request
+2024-11-22 22:39:08,426 - routes - INFO - Received synthesis request
+2024-11-22 22:39:08,427 - routes - INFO - Request parameters - Text: I don't understand, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:39:09,892 - routes - INFO - Text processing successful
+2024-11-22 22:40:21,706 - routes - INFO - Serving index page
+2024-11-22 22:40:25,544 - routes - INFO - Received synthesis request
+2024-11-22 22:40:25,546 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:40:26,324 - routes - INFO - Text processing successful
+2024-11-22 22:40:26,381 - routes - INFO - Received synthesis request
+2024-11-22 22:40:26,384 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:40:27,174 - routes - INFO - Text processing successful
+2024-11-22 22:40:29,171 - routes - INFO - Received speech request
+2024-11-22 22:40:33,288 - routes - INFO - Received synthesis request
+2024-11-22 22:40:33,289 - routes - INFO - Request parameters - Text: Hello, how are you?, Voice: amy, Enhance: True, Speed: 1
+2024-11-22 22:40:34,090 - routes - INFO - Text processing successful
+2024-11-22 22:40:35,051 - routes - INFO - Received speech request

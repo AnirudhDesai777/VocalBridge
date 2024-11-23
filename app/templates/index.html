@@ -290,25 +290,17 @@ async function playAudio(audioData) {
         const byteArray = new Uint8Array(byteNumbers);
         const blob = new Blob([byteArray], { type: 'audio/wav' });
         
-        // Create object URL from blob
+        // Create object URL and audio element
         const audioUrl = URL.createObjectURL(blob);
-        
-        // Create and configure audio element
-        const audio = new Audio();
-        audio.preload = 'auto';
-        
-        // Set up promise to handle loading
-        const loadPromise = new Promise((resolve, reject) => {
-            audio.addEventListener('canplaythrough', resolve);
-            audio.addEventListener('error', reject);
-            
-            // Set timeout for loading
-            setTimeout(() => reject(new Error('Audio loading timeout')), 10000);
-        });
+        const audio = new Audio(audioUrl);
         
         // Set up event handlers
-        audio.addEventListener('playing', () => {
+        audio.addEventListener('canplaythrough', () => {
             audioOutput.innerHTML = '<div class="playing">Playing audio...</div>';
+            audio.play().catch(error => {
+                console.error('Playback error:', error);
+                audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
+            });
         });
         
         audio.addEventListener('ended', () => {
@@ -321,18 +313,12 @@ async function playAudio(audioData) {
             audioOutput.innerHTML = '<div class="error">Error playing audio</div>';
             URL.revokeObjectURL(audioUrl);
         });
-        
-        // Set source and start loading
-        audio.src = audioUrl;
-        
-        // Wait for audio to be ready
-        await loadPromise;
-        
-        // Play the audio
-        await audio.play();
+
+        // Load the audio
+        audio.load();
         
     } catch (error) {
-        console.error('Audio error:', error);
+        console.error('Audio preparation error:', error);
         audioOutput.innerHTML = '<div class="error">Error preparing audio</div>';
     }
 }
