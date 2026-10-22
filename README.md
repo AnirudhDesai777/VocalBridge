@@ -1,134 +1,75 @@
-# VocalBridge - AI-Powered Speech Assistant
+# VocalBridge
 
-VocalBridge is a web-based speech assistance tool designed to help people with speech impairments communicate more effectively. It combines text-to-speech technology with AI-powered text enhancement to create natural, clear speech output.
+A small Flask web app that helps people with speech impairments communicate. The user types or picks a phrase, and VocalBridge speaks it aloud in a natural voice. An optional LLM step can tidy the text first.
 
-## Features
+![VocalBridge web interface](image.png)
 
-- **Text-to-Speech Conversion**: Convert written text to natural-sounding speech
-- **Multiple Voice Options**: Choose from various voice options (Amy, Arctic, Bryce, and more)
-- **Dual LLM Enhancement**:
-  - Text Humanization: Adds natural breaks and punctuation for better TTS output
-  - Content Enhancement: Optional AI-powered text enhancement for clearer communication
-- **Voice Customization**: Adjust speech rate and voice selection
-- **Quick Access Phrases**: Speak common phrases with one tap for faster input
-- **Review System**: Preview and approve AI-enhanced text before speaking
+## What it does
 
-## Installation
+- **Text to speech** with local [Piper](https://github.com/rhasspy/piper) voices through [yapper-tts](https://pypi.org/project/yapper-tts/): Amy, Arctic, Bryce, Danny, John, Kathleen, Kristin, LJSpeech and Norman.
+- **Speech rate** control (slow, normal, fast).
+- **Quick phrases**: one-tap buttons for common phrases such as greetings, thanks and asking for help.
+- **Optional LLM pass** through the Groq API:
+  - *humanize* adds punctuation and natural pauses so the speech sounds less robotic.
+  - *enhance* rewrites the text for clarity, and the user reviews it before it is spoken.
 
-1. Clone the repository:
+`GROQ_API_KEY` must be set to a non-empty value or the app will not start. A valid key is optional: if the Groq call fails, the app falls back to the original text, so plain text to speech still works with a placeholder value.
+
+## How it works
+
+```
+browser (index.html)
+  -> POST /synthesize  text -> LLMService (Groq): humanized / enhanced text
+  -> POST /speak       text -> TTSService (Piper via yapper-tts) -> base64 WAV -> played in the browser
+```
+
+| Path | Role |
+|------|------|
+| `app/routes/main.py` | Flask routes: `/`, `/synthesize`, `/speak` |
+| `app/services/llm_service.py` | Groq client for humanize and enhance |
+| `app/services/tts_service.py` | Piper voice loading and WAV generation |
+| `app/utils/logger.py` | Per-service log files in `logs/` (git-ignored) |
+| `app/templates/`, `app/static/` | Web interface |
+
+## Run it
+
+Tested with Python 3.12.
+
 ```bash
 git clone https://github.com/AnirudhDesai777/VocalBridge.git
-cd vocalbridge
-```
-
-2. Create and activate a virtual environment:
-```bash
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-```
-
-3. Install required packages:
-```bash
+cd VocalBridge
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Create a `.env` file in the root directory:
+Create a `.env` file in the project root:
+
 ```env
-FLASK_APP=run.py
-FLASK_ENV=development
-GROQ_API_KEY=your-groq-api-key-here
+GROQ_API_KEY=your-groq-api-key   # required to start; a placeholder works but disables the LLM features
 ```
 
-5. Initialize the database:
+Then start the server:
+
 ```bash
-flask db init
-flask db migrate -m "Initial migration"
-flask db upgrade
+python run.py
 ```
 
-6. Run the application:
-```bash
-flask run
-```
+Open http://127.0.0.1:5000/. The first start downloads the Piper binary and voice models into the yapper-tts data folder.
 
-The application will be available at `http://127.0.0.1:5000/`
+## Known issues
 
-## Usage
+- The Groq model name in `llm_service.py` (`llama3-70b-8192`) is from late 2024 and has since been deprecated by Groq, so the LLM features need a current model name.
+- The app was built and used on Windows. On macOS (Apple Silicon), the web interface loads and the routes respond, but the Piper binary that yapper-tts downloads exits with SIGABRT, so no audio is produced there.
 
-1. **Basic Text-to-Speech**:
-   - Enter text in the input field
-   - Select a voice from the dropdown
-   - Click "Generate Speech"
+## Future scope
 
-2. **Enhanced Speech**:
-   - Enable "Enhance with LLaMA" option
-   - Enter text
-   - Review the enhanced version
-   - Accept or reject the enhancement
-   - Listen to the generated speech
-
-3. **Voice Settings**:
-   - Choose from multiple voice options
-   - Adjust speech rate (slow/normal/fast)
-   - Customize voice characteristics
-
-## Architecture
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Flask (Python)
-- **LLM Integration**: Groq API with LLaMA model
-- **TTS Engine**: Yapper-TTS
-- **Logging**: Custom logging system with rotation
-
-## Components
-
-1. **LLM Service**:
-   - Text humanization for better TTS
-   - Optional content enhancement
-   - Groq API integration
-
-2. **TTS Service**:
-   - Multiple voice support
-   - Speed control
-   - Audio file handling
-
-3. **Web Interface**:
-   - Responsive design
-   - Accessibility features
-   - Real-time feedback
-
-## API Endpoints
-
-- `GET /`: Main application interface
-- `POST /synthesize`: Generate speech from text
-  - Parameters:
-    - `text`: Input text
-    - `voice`: Selected voice
-    - `enhance`: Boolean for enhancement
-    - `speed`: Speech rate
-
-## Logging
-
-The application maintains detailed logs in the `logs` directory:
-- Daily rotating logs for each component
-- Latest logs in separate files
-- Console output for development
-
-
-## Screenshots
-![screenshot of web interface](image.png)
-
-## Future Scope
-- Use PIPER TTS replacing yapper-tts
-- Real time contolling of speed
-- Individual Customization
-
+- Use Piper directly instead of through yapper-tts.
+- Change speech speed in real time.
+- Per-user customisation of voices and phrases.
 
 ## Acknowledgments
 
-- Yapper-TTS for speech synthesis
-- Groq API for LLaMA model access
-- Flask framework
+- [Piper](https://github.com/rhasspy/piper) and yapper-tts for speech synthesis
+- Groq for LLaMA model access
+- Flask
