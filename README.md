@@ -13,7 +13,7 @@ A small Flask web app that helps people with speech impairments communicate. The
   - *humanize* adds punctuation and natural pauses so the speech sounds less robotic.
   - *enhance* rewrites the text for clarity, and the user reviews it before it is spoken.
 
-If the Groq call fails or no valid key is set, the app falls back to the original text, so plain text to speech still works without an API key.
+`GROQ_API_KEY` must be set to a non-empty value or the app will not start. A valid key is optional: if the Groq call fails, the app falls back to the original text, so plain text to speech still works with a placeholder value.
 
 ## How it works
 
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```env
-GROQ_API_KEY=your-groq-api-key   # optional; any placeholder value starts the app without LLM features
+GROQ_API_KEY=your-groq-api-key   # required to start; a placeholder works but disables the LLM features
 ```
 
 Then start the server:
